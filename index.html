@@ -72,7 +72,7 @@
 
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
         }
 
@@ -273,7 +273,7 @@
 
         table {
             width: 100%;
-            min-width: 900px;
+            min-width: 1100px;
 
             border-collapse: collapse;
         }
@@ -476,6 +476,11 @@
         .percentage-value {
             color: var(--cyan);
             font-weight: 700;
+        }
+
+        .amount-value {
+            color: #cbd5e1;
+            font-weight: 600;
         }
 
         .below-value {
@@ -847,6 +852,10 @@
                         </th>
 
                         <th>
+                            Selection Amount
+                        </th>
+
+                        <th>
                             Sum of % Below
                         </th>
 
@@ -1102,19 +1111,27 @@
 
             <td>
 
-                <span class="dash">
-                    —
-                </span>
+                <strong
+                    id="lotAmountDisplay"
+                    class="amount-value"
+                >
+                    ${formatRate(lotCount * lotRate)}
+                </strong>
 
             </td>
 
 
             <td>
-
                 <span class="dash">
                     —
                 </span>
+            </td>
 
+
+            <td>
+                <span class="dash">
+                    —
+                </span>
             </td>
 
         `;
@@ -1192,6 +1209,15 @@
                         placeholder="Enter rate"
                         aria-label="Per piece rate for Selection ${index + 1}"
                     />
+
+                </td>
+
+
+                <td>
+
+                    <span class="amount-value amount">
+                        —
+                    </span>
 
                 </td>
 
@@ -1298,6 +1324,12 @@
             );
 
 
+        const lotAmountDisplay =
+            document.getElementById(
+                "lotAmountDisplay"
+            );
+
+
         if (lotCountDisplay) {
 
             lotCountDisplay.textContent =
@@ -1310,6 +1342,14 @@
 
             lotRateDisplay.textContent =
                 formatRate(lotRate);
+
+        }
+
+
+        if (lotAmountDisplay) {
+
+            lotAmountDisplay.textContent =
+                formatRate(lotAmount);
 
         }
 
@@ -1338,6 +1378,14 @@
             [
                 ...document.querySelectorAll(
                     ".percentage"
+                )
+            ];
+
+
+        const amountCells =
+            [
+                ...document.querySelectorAll(
+                    ".amount"
                 )
             ];
 
@@ -1384,7 +1432,9 @@
 
 
                     if (value === "") {
+
                         return null;
+
                     }
 
 
@@ -1409,7 +1459,9 @@
                 count => {
 
                     if (totalLot <= 0) {
+
                         return 0;
+
                     }
 
 
@@ -1456,7 +1508,7 @@
             (percentage, index) => {
 
                 /*
-                 * Display percentage
+                 * Current percentage
                  */
 
                 percentageCells[index]
@@ -1466,7 +1518,40 @@
 
 
                 /*
-                 * Sum percentage below
+                 * Current amount
+                 */
+
+                if (
+                    amounts[index] !== null
+                ) {
+
+                    amountCells[index]
+                        .textContent =
+                        formatRate(
+                            amounts[index]
+                        );
+
+                } else {
+
+                    amountCells[index]
+                        .textContent =
+                        "—";
+
+                }
+
+
+                /*
+                 * Percentage below
+                 *
+                 * Example:
+                 *
+                 * Selection 1 = 25%
+                 *
+                 * Below:
+                 *
+                 * 20 + 15 + 20 + 20
+                 *
+                 * = 75%
                  */
 
                 let belowPercentage = 0;
@@ -1491,7 +1576,9 @@
 
 
                 /*
-                 * No rate entered
+                 * --------------------------------
+                 * NO RATE = NO CALCULATION
+                 * --------------------------------
                  */
 
                 if (
@@ -1515,7 +1602,12 @@
 
 
                 /*
-                 * No percentage below
+                 * --------------------------------
+                 * LAST ROW
+                 * --------------------------------
+                 *
+                 * Nothing exists below it,
+                 * so there is no rate to calculate.
                  */
 
                 if (
@@ -1540,21 +1632,17 @@
 
                 /*
                  * --------------------------------
-                 * SUM AMOUNTS FROM LOT THROUGH
-                 * CURRENT SELECTION
+                 * CHECK PREVIOUS RATES
                  * --------------------------------
                  *
-                 * Example:
+                 * To calculate Selection 2:
                  *
-                 * LOT = 4500
+                 * LOT amount
+                 * - Selection 1 amount
+                 * - Selection 2 amount
                  *
-                 * Selection 1 = 1375
-                 *
-                 * Selection 2 = 880
-                 *
-                 * Selection 2 calculation:
-                 *
-                 * 4500 - 1375 - 880
+                 * Therefore Selection 1 must
+                 * already have a rate.
                  */
 
                 let completedAmount = 0;
@@ -1586,7 +1674,9 @@
 
 
                 /*
-                 * A previous rate is missing.
+                 * If a previous selection does
+                 * not have a rate, calculation
+                 * cannot be performed.
                  */
 
                 if (!canCalculate) {
@@ -1608,9 +1698,37 @@
 
 
                 /*
-                 * --------------------------------
-                 * REMAINING AMOUNT
-                 * --------------------------------
+                 * =================================
+                 * CORRECT CALCULATION
+                 * =================================
+                 *
+                 * LOT:
+                 *
+                 * 100 × 45
+                 * = 4500
+                 *
+                 *
+                 * Selection 1:
+                 *
+                 * 25 × 55
+                 * = 1375
+                 *
+                 *
+                 * Remaining:
+                 *
+                 * 4500 - 1375
+                 * = 3125
+                 *
+                 *
+                 * Percentage below:
+                 *
+                 * 75
+                 *
+                 *
+                 * Result:
+                 *
+                 * 3125 / 75
+                 * = 41.67
                  */
 
                 const remainingAmount =
@@ -1619,44 +1737,21 @@
 
 
                 /*
-                 * --------------------------------
-                 * RAW CALCULATED RATE
-                 * --------------------------------
+                 * IMPORTANT:
                  *
-                 * Example:
+                 * belowPercentage is already
+                 * represented as 75, 55, etc.
                  *
-                 * 3125 / 75
-                 * = 41.6667
+                 * Do NOT divide it by 100.
                  */
 
-                const rawRate =
+                const calculatedRate =
                     remainingAmount /
                     belowPercentage;
 
 
                 /*
-                 * --------------------------------
-                 * FINAL RATE
-                 * --------------------------------
-                 *
-                 * Divide by 10 and round to
-                 * exactly 2 decimal places.
-                 *
-                 * 41.6667 / 10
-                 * = 4.16667
-                 * = 4.17
-                 */
-
-                const calculatedRate =
-                    Number(
-                        (
-                            rawRate / 10
-                        ).toFixed(2)
-                    );
-
-
-                /*
-                 * Display
+                 * Display result
                  */
 
                 if (
@@ -1667,7 +1762,9 @@
 
                     calculatedCells[index]
                         .textContent =
-                        calculatedRate.toFixed(2);
+                        formatRate(
+                            calculatedRate
+                        );
 
 
                     calculatedCells[index]
