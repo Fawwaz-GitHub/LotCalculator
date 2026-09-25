@@ -76,9 +76,9 @@
             margin: 0 auto;
         }
 
-        /* -------------------------------- */
-        /* Header */
-        /* -------------------------------- */
+        /* ========================================
+           HEADER
+        ======================================== */
 
         .page-header {
             display: flex;
@@ -117,9 +117,9 @@
             font-weight: 600;
         }
 
-        /* -------------------------------- */
-        /* Cards */
-        /* -------------------------------- */
+        /* ========================================
+           CARDS
+        ======================================== */
 
         .card {
             margin-bottom: 22px;
@@ -152,9 +152,9 @@
             font-size: 13px;
         }
 
-        /* -------------------------------- */
-        /* Configuration */
-        /* -------------------------------- */
+        /* ========================================
+           CONFIGURATION
+        ======================================== */
 
         .input-grid {
             display: grid;
@@ -250,9 +250,9 @@
                 0 8px 20px rgba(37, 99, 235, 0.25);
         }
 
-        /* -------------------------------- */
-        /* Table */
-        /* -------------------------------- */
+        /* ========================================
+           TABLE
+        ======================================== */
 
         .table-card {
             padding: 0;
@@ -331,9 +331,9 @@
             border-bottom: none;
         }
 
-        /* -------------------------------- */
-        /* LOT row */
-        /* -------------------------------- */
+        /* ========================================
+           LOT ROW
+        ======================================== */
 
         .lot-row td {
             background:
@@ -394,9 +394,9 @@
             font-size: 10px;
         }
 
-        /* -------------------------------- */
-        /* Section */
-        /* -------------------------------- */
+        /* ========================================
+           SELECTION
+        ======================================== */
 
         .section-name {
             display: flex;
@@ -428,9 +428,9 @@
             font-weight: 600;
         }
 
-        /* -------------------------------- */
-        /* Inputs */
-        /* -------------------------------- */
+        /* ========================================
+           INPUTS
+        ======================================== */
 
         .table-input {
             width: 130px;
@@ -469,9 +469,9 @@
                 0 0 0 3px rgba(59, 130, 246, 0.10);
         }
 
-        /* -------------------------------- */
-        /* Values */
-        /* -------------------------------- */
+        /* ========================================
+           VALUES
+        ======================================== */
 
         .percentage-value {
             color: var(--cyan);
@@ -521,9 +521,9 @@
             color: #475569;
         }
 
-        /* -------------------------------- */
-        /* Status */
-        /* -------------------------------- */
+        /* ========================================
+           STATUS
+        ======================================== */
 
         .status-container {
             padding: 20px 24px;
@@ -587,9 +587,9 @@
             font-size: 12px;
         }
 
-        /* -------------------------------- */
-        /* Summary */
-        /* -------------------------------- */
+        /* ========================================
+           SUMMARY
+        ======================================== */
 
         .summary {
             display: grid;
@@ -647,61 +647,12 @@
             color: var(--yellow);
         }
 
-        /* -------------------------------- */
-        /* Formula */
-        /* -------------------------------- */
-
-        .formula-card {
-            padding: 22px 24px;
-        }
-
-        .formula-title {
-            margin-bottom: 14px;
-
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .formula {
-            padding: 16px;
-
-            border: 1px solid rgba(96, 165, 250, 0.12);
-            border-radius: 12px;
-
-            background: rgba(59, 130, 246, 0.05);
-
-            color: #cbd5e1;
-
-            font-family: "Courier New", monospace;
-
-            font-size: 13px;
-
-            line-height: 1.8;
-
-            overflow-x: auto;
-        }
-
-        .formula strong {
-            color: #93c5fd;
-        }
-
-        .formula-example {
-            margin-top: 12px;
-
-            color: #64748b;
-
-            font-family: "Inter", sans-serif;
-
-            font-size: 12px;
-
-            line-height: 1.8;
-        }
-
-        /* -------------------------------- */
-        /* Responsive */
-        /* -------------------------------- */
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
 
         @media (max-width: 1000px) {
+
             .input-grid {
                 grid-template-columns: 1fr;
             }
@@ -713,6 +664,7 @@
         }
 
         @media (max-width: 700px) {
+
             body {
                 padding: 18px;
             }
@@ -742,9 +694,9 @@
 
 <div class="container">
 
-    <!-- ================================= -->
-    <!-- PAGE HEADER -->
-    <!-- ================================= -->
+    <!-- ========================================
+         HEADER
+    ======================================== -->
 
     <div class="page-header">
 
@@ -755,7 +707,7 @@
             </h1>
 
             <p>
-                Calculate progressive section rates from the original lot value
+                Calculate rates across multiple selections
             </p>
 
         </div>
@@ -767,9 +719,9 @@
     </div>
 
 
-    <!-- ================================= -->
-    <!-- CONFIGURATION -->
-    <!-- ================================= -->
+    <!-- ========================================
+         CONFIGURATION
+    ======================================== -->
 
     <div class="card">
 
@@ -778,7 +730,7 @@
         </div>
 
         <div class="card-description">
-            Configure the lot before entering individual section values.
+            Configure the lot before entering individual selection values.
         </div>
 
 
@@ -787,7 +739,7 @@
             <div class="field">
 
                 <label for="sections">
-                    Number of Sections
+                    Number of Selections
                 </label>
 
                 <input
@@ -844,7 +796,7 @@
                 type="button"
                 onclick="generateTable()"
             >
-                Generate Sections
+                Generate Selections
             </button>
 
         </div>
@@ -852,9 +804,9 @@
     </div>
 
 
-    <!-- ================================= -->
-    <!-- TABLE -->
-    <!-- ================================= -->
+    <!-- ========================================
+         TABLE
+    ======================================== -->
 
     <div class="card table-card">
 
@@ -868,8 +820,8 @@
                 class="card-description"
                 style="margin-bottom: 0;"
             >
-                Enter piece count and per-piece rate for each section.
-                Rates are calculated only after the section rate is provided.
+                Enter the piece count and per-piece rate for each selection.
+                Calculated rates appear only when the required rates are provided.
             </div>
 
         </div>
@@ -884,7 +836,7 @@
                     <tr>
 
                         <th>
-                            Section
+                            Selection
                         </th>
 
                         <th>
@@ -900,7 +852,7 @@
                         </th>
 
                         <th>
-                            Section Amount
+                            Selection Amount
                         </th>
 
                         <th>
@@ -923,7 +875,9 @@
         </div>
 
 
-        <!-- Status -->
+        <!-- ========================================
+             STATUS
+        ======================================== -->
 
         <div class="status-container">
 
@@ -935,20 +889,22 @@
                 <span class="status-dot"></span>
 
                 <span id="statusText">
-                    Enter section values
+                    Enter selection values
                 </span>
 
             </div>
 
 
             <div class="status-info">
-                Section piece counts must equal the total lot count.
+                Selection piece counts must equal the total lot count.
             </div>
 
         </div>
 
 
-        <!-- Summary -->
+        <!-- ========================================
+             SUMMARY
+        ======================================== -->
 
         <div class="summary">
 
@@ -1019,90 +975,14 @@
 
     </div>
 
-
-    <!-- ================================= -->
-    <!-- FORMULA -->
-    <!-- ================================= -->
-
-    <div class="card formula-card">
-
-        <div class="formula-title">
-            Calculation Formula
-        </div>
-
-
-        <div class="formula">
-
-            <strong>LOT Total Amount</strong>
-
-            =
-            Total Lot Count × Lot Per Piece Price
-
-
-            <br><br>
-
-
-            <strong>Section Amount</strong>
-
-            =
-            Section Piece Count × Section Per Piece Rate
-
-
-            <br><br>
-
-
-            <strong>Calculated Rate</strong>
-
-            =
-            (LOT Total Amount − All Completed Section Amounts)
-            ÷ Sum of Percentage Below
-
-
-            <div class="formula-example">
-
-                Example with 100 lots and lot rate 45:
-
-                <br>
-
-                LOT:
-                100 × 45 = 4500
-
-                <br>
-
-                Section 1:
-                25 × 55 = 1375
-
-                <br>
-
-                Section 1 Rate:
-                (4500 − 1375) ÷ 75 = 41.67
-
-                <br>
-
-                Section 2:
-                20 × 44 = 880
-
-                <br>
-
-                Section 2 Rate:
-                (4500 − 1375 − 880) ÷ 55 = 40.82
-
-            </div>
-
-        </div>
-
-    </div>
-
 </div>
 
 
 <script>
 
-    /*
-     * ============================================
-     * ELEMENTS
-     * ============================================
-     */
+    /* ========================================
+       ELEMENTS
+    ======================================== */
 
     const tableBody =
         document.getElementById("tableBody");
@@ -1117,11 +997,9 @@
         document.getElementById("lotRate");
 
 
-    /*
-     * ============================================
-     * INITIALIZE
-     * ============================================
-     */
+    /* ========================================
+       INITIALIZE
+    ======================================== */
 
     generateTable();
 
@@ -1138,18 +1016,16 @@
     );
 
 
-    /*
-     * ============================================
-     * GENERATE TABLE
-     * ============================================
-     */
+    /* ========================================
+       GENERATE TABLE
+    ======================================== */
 
     function generateTable() {
 
         tableBody.innerHTML = "";
 
 
-        const sectionCount =
+        const selectionCount =
             parseInt(
                 sectionsInput.value,
                 10
@@ -1168,11 +1044,9 @@
             ) || 0;
 
 
-        /*
-         * ----------------------------------------
-         * LOT HEADER ROW
-         * ----------------------------------------
-         */
+        /* ====================================
+           LOT ROW
+        ==================================== */
 
         const lotRow =
             document.createElement("tr");
@@ -1268,15 +1142,13 @@
         );
 
 
-        /*
-         * ----------------------------------------
-         * SECTION ROWS
-         * ----------------------------------------
-         */
+        /* ====================================
+           SELECTION ROWS
+        ==================================== */
 
         for (
             let index = 0;
-            index < sectionCount;
+            index < selectionCount;
             index++
         ) {
 
@@ -1295,7 +1167,7 @@
                         </div>
 
                         <strong>
-                            Section ${index + 1}
+                            Selection ${index + 1}
                         </strong>
 
                     </div>
@@ -1311,7 +1183,7 @@
                         min="0"
                         step="1"
                         value="0"
-                        aria-label="Piece count for Section ${index + 1}"
+                        aria-label="Piece count for Selection ${index + 1}"
                     />
 
                 </td>
@@ -1319,9 +1191,7 @@
 
                 <td>
 
-                    <span
-                        class="percentage-value percentage"
-                    >
+                    <span class="percentage-value percentage">
                         0.00%
                     </span>
 
@@ -1337,7 +1207,7 @@
                         step="0.01"
                         value=""
                         placeholder="Enter rate"
-                        aria-label="Per piece rate for Section ${index + 1}"
+                        aria-label="Per piece rate for Selection ${index + 1}"
                     />
 
                 </td>
@@ -1345,9 +1215,7 @@
 
                 <td>
 
-                    <span
-                        class="amount-value amount"
-                    >
+                    <span class="amount-value amount">
                         —
                     </span>
 
@@ -1356,9 +1224,7 @@
 
                 <td>
 
-                    <span
-                        class="below-value below"
-                    >
+                    <span class="below-value below">
                         0.00%
                     </span>
 
@@ -1385,9 +1251,9 @@
         }
 
 
-        /*
-         * Attach input listeners
-         */
+        /* ====================================
+           INPUT LISTENERS
+        ==================================== */
 
         const sectionInputs =
             tableBody.querySelectorAll(
@@ -1412,11 +1278,9 @@
     }
 
 
-    /*
-     * ============================================
-     * MAIN CALCULATION
-     * ============================================
-     */
+    /* ========================================
+       CALCULATION
+    ======================================== */
 
     function calculate() {
 
@@ -1433,14 +1297,20 @@
 
 
         /*
-         * ----------------------------------------
-         * LOT VALUES
-         * ----------------------------------------
+         * LOT TOTAL AMOUNT
+         *
+         * Example:
+         *
+         * 100 × 45 = 4500
          */
 
         const lotAmount =
             totalLot * lotRate;
 
+
+        /* ====================================
+           UPDATE LOT DISPLAY
+        ==================================== */
 
         const lotCountDisplay =
             document.getElementById(
@@ -1484,11 +1354,9 @@
         }
 
 
-        /*
-         * ----------------------------------------
-         * GET SECTION INPUTS
-         * ----------------------------------------
-         */
+        /* ====================================
+           GET TABLE ELEMENTS
+        ==================================== */
 
         const pieceInputs =
             [
@@ -1538,11 +1406,9 @@
             ];
 
 
-        /*
-         * ----------------------------------------
-         * READ SECTION VALUES
-         * ----------------------------------------
-         */
+        /* ====================================
+           READ VALUES
+        ==================================== */
 
         const counts =
             pieceInputs.map(
@@ -1554,13 +1420,7 @@
 
 
         /*
-         * Important:
-         *
-         * Blank rate is NOT converted into
-         * zero here.
-         *
-         * We need to know whether the user
-         * actually entered a rate.
+         * Keep blank rate as null.
          */
 
         const rates =
@@ -1572,7 +1432,9 @@
 
 
                     if (value === "") {
+
                         return null;
+
                     }
 
 
@@ -1588,18 +1450,18 @@
             );
 
 
-        /*
-         * ----------------------------------------
-         * CALCULATE PERCENTAGES
-         * ----------------------------------------
-         */
+        /* ====================================
+           PERCENTAGES
+        ==================================== */
 
         const percentages =
             counts.map(
                 count => {
 
                     if (totalLot <= 0) {
+
                         return 0;
+
                     }
 
 
@@ -1612,65 +1474,41 @@
             );
 
 
-        /*
-         * ----------------------------------------
-         * CALCULATE SECTION AMOUNTS
-         * ----------------------------------------
-         */
+        /* ====================================
+           SECTION AMOUNTS
+        ==================================== */
 
         const amounts =
             counts.map(
                 (count, index) => {
 
-                    const rate =
-                        rates[index];
-
-
-                    /*
-                     * If rate is not entered,
-                     * section amount is unavailable.
-                     */
-
                     if (
-                        rate === null
+                        rates[index] === null
                     ) {
+
                         return null;
+
                     }
 
 
                     return (
-                        count * rate
+                        count *
+                        rates[index]
                     );
 
                 }
             );
 
 
-        /*
-         * ----------------------------------------
-         * TOTAL ENTERED COUNT
-         * ----------------------------------------
-         */
-
-        const totalEntered =
-            counts.reduce(
-                (sum, value) =>
-                    sum + value,
-                0
-            );
-
-
-        /*
-         * ----------------------------------------
-         * UPDATE SECTION VALUES
-         * ----------------------------------------
-         */
+        /* ====================================
+           PROCESS EACH SELECTION
+        ==================================== */
 
         percentages.forEach(
             (percentage, index) => {
 
                 /*
-                 * Percentage
+                 * Current percentage
                  */
 
                 percentageCells[index]
@@ -1680,7 +1518,7 @@
 
 
                 /*
-                 * Section amount
+                 * Current amount
                  */
 
                 if (
@@ -1703,17 +1541,17 @@
 
 
                 /*
-                 * --------------------------------
-                 * SUM OF PERCENTAGE BELOW
-                 * --------------------------------
+                 * Percentage below
                  *
                  * Example:
                  *
-                 * 100% total
+                 * Selection 1 = 25%
                  *
-                 * Section 1 = 25%
+                 * Below:
                  *
-                 * Below = 75%
+                 * 20 + 15 + 20 + 20
+                 *
+                 * = 75%
                  */
 
                 let belowPercentage = 0;
@@ -1739,36 +1577,40 @@
 
                 /*
                  * --------------------------------
-                 * CALCULATED RATE
+                 * NO RATE = NO CALCULATION
                  * --------------------------------
-                 *
-                 * Do NOT calculate if:
-                 *
-                 * 1. Current section has no rate
-                 * 2. No percentage exists below
-                 *
-                 * Formula:
-                 *
-                 * (LOT AMOUNT
-                 *  - Section 1 Amount
-                 *  - Section 2 Amount
-                 *  - ...
-                 *  - Current Section Amount)
-                 *
-                 * /
-                 *
-                 * Percentage Below
-                 *
-                 * IMPORTANT:
-                 *
-                 * Only sections from the beginning
-                 * through the current section are
-                 * subtracted.
                  */
 
                 if (
-                    rates[index] === null ||
-                    amounts[index] === null ||
+                    rates[index] === null
+                ) {
+
+                    calculatedCells[index]
+                        .textContent =
+                        "—";
+
+
+                    calculatedCells[index]
+                        .classList.add(
+                            "empty"
+                        );
+
+
+                    return;
+
+                }
+
+
+                /*
+                 * --------------------------------
+                 * LAST ROW
+                 * --------------------------------
+                 *
+                 * Nothing exists below it,
+                 * so there is no rate to calculate.
+                 */
+
+                if (
                     belowPercentage <= 0
                 ) {
 
@@ -1790,8 +1632,17 @@
 
                 /*
                  * --------------------------------
-                 * SUM COMPLETED SECTION AMOUNTS
+                 * CHECK PREVIOUS RATES
                  * --------------------------------
+                 *
+                 * To calculate Selection 2:
+                 *
+                 * LOT amount
+                 * - Selection 1 amount
+                 * - Selection 2 amount
+                 *
+                 * Therefore Selection 1 must
+                 * already have a rate.
                  */
 
                 let completedAmount = 0;
@@ -1804,13 +1655,6 @@
                     previous <= index;
                     previous++
                 ) {
-
-                    /*
-                     * If any previous section does
-                     * not have a rate, we cannot
-                     * calculate this row because
-                     * its amount is unknown.
-                     */
 
                     if (
                         amounts[previous] === null
@@ -1830,8 +1674,9 @@
 
 
                 /*
-                 * If a previous section has no
-                 * rate, don't show calculation.
+                 * If a previous selection does
+                 * not have a rate, calculation
+                 * cannot be performed.
                  */
 
                 if (!canCalculate) {
@@ -1853,26 +1698,37 @@
 
 
                 /*
-                 * --------------------------------
-                 * FINAL FORMULA
-                 * --------------------------------
+                 * =================================
+                 * CORRECT CALCULATION
+                 * =================================
                  *
-                 * Example:
+                 * LOT:
                  *
-                 * LOT = 4500
-                 *
-                 * Section 1 = 1375
-                 *
-                 * Section 2 = 880
+                 * 100 × 45
+                 * = 4500
                  *
                  *
-                 * Section 2:
+                 * Selection 1:
                  *
-                 * (4500 - 1375 - 880)
-                 * /
-                 * 55
+                 * 25 × 55
+                 * = 1375
                  *
-                 * = 40.82
+                 *
+                 * Remaining:
+                 *
+                 * 4500 - 1375
+                 * = 3125
+                 *
+                 *
+                 * Percentage below:
+                 *
+                 * 75
+                 *
+                 *
+                 * Result:
+                 *
+                 * 3125 / 75
+                 * = 41.67
                  */
 
                 const remainingAmount =
@@ -1880,13 +1736,22 @@
                     completedAmount;
 
 
+                /*
+                 * IMPORTANT:
+                 *
+                 * belowPercentage is already
+                 * represented as 75, 55, etc.
+                 *
+                 * Do NOT divide it by 100.
+                 */
+
                 const calculatedRate =
                     remainingAmount /
                     belowPercentage;
 
 
                 /*
-                 * Display
+                 * Display result
                  */
 
                 if (
@@ -1925,11 +1790,17 @@
         );
 
 
-        /*
-         * ----------------------------------------
-         * TOTAL PERCENTAGE
-         * ----------------------------------------
-         */
+        /* ====================================
+           SUMMARY
+        ==================================== */
+
+        const totalEntered =
+            counts.reduce(
+                (sum, value) =>
+                    sum + value,
+                0
+            );
+
 
         const totalPercentage =
             percentages.reduce(
@@ -1938,12 +1809,6 @@
                 0
             );
 
-
-        /*
-         * ----------------------------------------
-         * SUMMARY
-         * ----------------------------------------
-         */
 
         document.getElementById(
             "summaryLotCount"
@@ -1976,11 +1841,9 @@
             );
 
 
-        /*
-         * ----------------------------------------
-         * VALIDATION
-         * ----------------------------------------
-         */
+        /* ====================================
+           STATUS
+        ==================================== */
 
         updateStatus(
             totalEntered,
@@ -1990,11 +1853,9 @@
     }
 
 
-    /*
-     * ============================================
-     * STATUS
-     * ============================================
-     */
+    /* ========================================
+       STATUS
+    ======================================== */
 
     function updateStatus(
         totalEntered,
@@ -2013,9 +1874,7 @@
             );
 
 
-        if (
-            totalLot <= 0
-        ) {
+        if (totalLot <= 0) {
 
             status.className =
                 "status error";
@@ -2044,7 +1903,7 @@
 
 
             statusText.textContent =
-                "Total section count matches lot count";
+                "Total selection count matches lot count";
 
         } else {
 
@@ -2064,15 +1923,11 @@
     }
 
 
-    /*
-     * ============================================
-     * FORMAT NUMBER
-     * ============================================
-     */
+    /* ========================================
+       FORMAT NUMBER
+    ======================================== */
 
-    function formatNumber(
-        value
-    ) {
+    function formatNumber(value) {
 
         return Number(value)
             .toLocaleString(
@@ -2085,15 +1940,11 @@
     }
 
 
-    /*
-     * ============================================
-     * FORMAT RATE
-     * ============================================
-     */
+    /* ========================================
+       FORMAT RATE
+    ======================================== */
 
-    function formatRate(
-        value
-    ) {
+    function formatRate(value) {
 
         if (
             value === null ||
